@@ -14,7 +14,8 @@ class TeamGameData:
     #
     def __init__(self, team_name, current_time=datetime.now()):
         #Load api key from env file
-        load_dotenv(rf'app\purdue_data_client\cfdb_api.env')
+        if os.path.exists('app\purdue_data_client\cfdb_api.env'):
+            load_dotenv(rf'app\purdue_data_client\cfdb_api.env')
         self.api_key = os.getenv("CFBD_API_KEY")
         
         self.configuration = cfbd.Configuration()
