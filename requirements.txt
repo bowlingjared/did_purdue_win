@@ -1,0 +1,4 @@
+cfbd==4.5.2
+Flask==3.0.3
+matplotlib==3.9.2
+python-dotenv==1.0.1
