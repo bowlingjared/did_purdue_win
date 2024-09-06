@@ -7,8 +7,15 @@ from datetime import datetime, timedelta
 purdue_client = TeamGameData(team_name='Purdue')
 
 def generate_graph():
+    latest_game = purdue_client.get_latest_game()
+    is_latest_win = purdue_client.check_team_win(latest_game)
+    with open("app/static/is_win.txt", "w") as file:
+        file.write(str(is_latest_win))
+    score = purdue_client.get_game_score(latest_game)
+    with open("app/static/score.txt", "w") as file:
+        file.write(score)
     image_data = purdue_client.generate_wl_graph()
-    image_data.save('app/static/test.png', format='png')
+    image_data.save('app/static/win_loss.png', format='png')
 
 def generate_graph_jobs(scheduler, start_up=False):
     if start_up == True:

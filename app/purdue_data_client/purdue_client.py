@@ -170,7 +170,14 @@ class TeamGameData:
             datetime.fromisoformat(game.start_date)+twelve_hours
             game_times.append(game.start_date)
         return game_times
-
+    def get_game_score(self, game):
+        """
+        Return a string of the score of any given game call
+        """
+        scores = [int(game.home_points), int(game.away_points)]
+        scores.sort(reverse=True)
+        return f"{scores[0]}-{scores[1]}"
+        
         
                 
     

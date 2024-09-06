@@ -19,6 +19,11 @@
             font-weight: bold;
             color: black;
         }
+        h2 {
+            font-weight: normal;
+            color: black;
+            margin-top: 10px;
+        }
         img {
             max-width: 300px;
             height: auto;
@@ -28,6 +33,7 @@
 </head>
 <body>
     <h1>Purdue Won!</h1>
+    <h2>Score: {{ score }}</h2> <!-- Added section for the score -->
     <img src="{{ image_url }}" alt="Purdue Logo">
 </body>
 </html>
