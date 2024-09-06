@@ -1,9 +1,10 @@
 from flask import Flask
 from flask import g
 from app.purdue_data_client.purdue_client import TeamGameData
+from app.job_scheduler.job_scheduler import JobScheduler
 from flask_apscheduler import APScheduler
 from datetime import datetime, timedelta
-from app.job_scheduler.job_scheduler import JobScheduler
+
 
 
 def create_app():
@@ -19,7 +20,7 @@ def create_app():
         scheduler = APScheduler()
         scheduler.init_app(app)
         scheduler.start()
-        job_scheduler = JobScheduler(scheduler, purdue_client)
+        job_scheduler = JobScheduler(scheduler=scheduler, team_data_client=purdue_client)
         job_scheduler.generate_graph_jobs()
         
         return app
