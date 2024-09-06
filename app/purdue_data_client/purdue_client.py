@@ -9,6 +9,7 @@ import matplotlib.pyplot as plt
 import io
 import base64
 import PIL.Image
+from matplotlib.ticker import MaxNLocator
 
 class TeamGameData:
     #
@@ -144,10 +145,12 @@ class TeamGameData:
         data = [wins, losses]
 
         # Create a bar chart
-        plt.bar(["Wins", "Losses"], data, color=['yellow', 'black'])
+        fig, ax = plt.subplots()
+        ax.bar(["Wins", "Losses"], data, color=['yellow', 'black'])
 
         # Add labels and title
-        plt.title("Wins Losses")
+        plt.title(f"Wins Losses for the {self.current_year} season")
+        ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
         img_buffer = io.BytesIO()
         plt.savefig(img_buffer, format='png')
