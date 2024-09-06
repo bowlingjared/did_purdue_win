@@ -1,0 +1,6 @@
+cfbd==4.5.2
+Flask==3.0.3
+Flask_APScheduler==1.13.1
+matplotlib==3.9.2
+Pillow==10.4.0
+python-dotenv==1.0.1
