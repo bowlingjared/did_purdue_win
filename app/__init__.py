@@ -14,6 +14,9 @@ def generate_graph():
     score = purdue_client.get_game_score(latest_game)
     with open("app/static/score.txt", "w") as file:
         file.write(score)
+    opponent = purdue_client.get_opponent(latest_game)
+    with open("app/static/opponent.txt", "w") as file:
+        file.write(opponent)
     image_data = purdue_client.generate_wl_graph()
     image_data.save('app/static/win_loss.png', format='png')
 

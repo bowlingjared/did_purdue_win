@@ -180,6 +180,21 @@ class TeamGameData:
         scores = [int(game.home_points), int(game.away_points)]
         scores.sort(reverse=True)
         return f"{scores[0]}-{scores[1]}"
+    def get_opponent(self, game):
+        """
+        Takes in API call for any given game find Purdue's opponent
+        Returns team name as a string
+        """
+        home_team = game.home_team
+        away_team = game.away_team
+    
+        # Check if Purdue was home, away, or did not play
+        if home_team == self.team_name:
+            return away_team
+        elif away_team == self.team_name:
+            return home_team
+        else:
+            return 'Purdue DNP'  # Purdue is not in this game
         
         
                 
