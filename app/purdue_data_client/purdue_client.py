@@ -149,7 +149,7 @@ class TeamGameData:
         ax.bar(["Wins", "Losses"], data, color=['yellow', 'black'])
 
         # Add labels and title
-        plt.title(f"Wins Losses for the {self.current_year} season")
+        plt.title(f"Wins Losses for the {self.team_name} {self.current_year} season")
         ax.yaxis.set_major_locator(MaxNLocator(integer=True))
 
         img_buffer = io.BytesIO()
